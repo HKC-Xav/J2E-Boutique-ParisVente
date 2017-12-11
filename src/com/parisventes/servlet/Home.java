@@ -11,10 +11,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.parisventes.bean.BDD;
+
 @WebServlet("/home")
 public class Home<ReadFile> extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	public static final String FILEPATH = "C:\\Users\\Administrateur\\Desktop\\Formation POE\\J2EE\\ParisVente\\WebContent\\articles.txt";
 
 	public Home() {
 		super();
@@ -25,7 +26,7 @@ public class Home<ReadFile> extends HttpServlet {
 		String html;
 		String allHtml = "";
 		try {
-			allLines = Files.readAllLines(Paths.get(FILEPATH));
+			allLines = Files.readAllLines(Paths.get(BDD.FILEPATH));
 			for (String line : allLines) {
 				String[] arr = line.split("\\|");
 				
@@ -33,7 +34,7 @@ public class Home<ReadFile> extends HttpServlet {
 				html += arr[1] + "</h4><fieldset disabled=\"disabled\"><figure><a href=\""+request.getContextPath()+"/article?id="+arr[0]+"\"><img src=\"";
 				html += request.getContextPath() + arr[2] + "\" alt=\"\"> </a> <figcaption>";
 				html += arr[3] + "</figcaption> </figure> </fieldset> <span class=\"article-prix\"> ";
-				html += arr[4] + "</span></article>";
+				html += arr[4] + "€</span></article>";
 				allHtml += html;
 			}
 			

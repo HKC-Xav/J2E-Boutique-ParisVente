@@ -1,4 +1,4 @@
-1|Pull Moche de Noel|/img/pull1.png|Un pull moche de Noël|500€
-2|Pull moche Jesus|/img/pull2.png|Un pull moche avec Jésus|200€
-3|String latéral moche|/img/string-lateral.jpg|Fantasme inavoué|300€
-4|Slip|/img/slip.jpg|Vrai sous-vêtement|100000€
+1|Pull Moche de Noel|/img/pull1.png|Un pull moche de Noël|500
+2|Pull moche Jesus|/img/pull2.png|Un pull moche avec Jésus|200
+3|String latéral moche|/img/string-lateral.jpg|Fantasme inavoué|300
+4|Slip|/img/slip.jpg|Vrai sous-vêtement|100000

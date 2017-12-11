@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.parisventes.bean.BDD;
+
 @WebServlet("/article")
 public class Articles extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -23,7 +25,7 @@ public class Articles extends HttpServlet {
 	public String readFile(HttpServletRequest request, Integer id) {
 		String html = new String();
 		try {
-			List<String> allLines = Files.readAllLines(Paths.get(Home.FILEPATH));
+			List<String> allLines = Files.readAllLines(Paths.get(BDD.FILEPATH));
 
 			for (int i = 0; i < allLines.size(); i++) {
 
@@ -40,7 +42,7 @@ public class Articles extends HttpServlet {
 					html += arr[1] + "</h4><figure><img src=\"";
 					html += request.getContextPath() + arr[2] + "\" alt=\"\"><figcaption>";
 					html += arr[3] + "</figcaption></figure><span>";
-					html += arr[4] + "�</span></article>";
+					html += arr[4] + "</span></article> <input type=\"button\" value=\"Retour\" onclick=\"history.back()\"></input>";
 					return html;
 				} else {
 					html = "Aucun article n'existe avec cet identifiant";
