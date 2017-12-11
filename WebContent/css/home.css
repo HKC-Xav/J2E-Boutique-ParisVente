@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+img {
+	align-content: center;
+	width: 250px;
+	height: 250px;
+}
+
+article {
+	border: 1px grey;
+}
+
+footer {
+	text-align: center;
+}
+
+#stringl {
+	transition: all 2s ease;
+}
+
+#stringl:hover {
+	transform: rotate(360deg);
+}
