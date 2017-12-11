@@ -3,14 +3,8 @@
 <!DOCTYPE>
 <html>
 <%@ include file="layouts/header.jsp"%>
-<section>
-	<figure>
-	<h4>Page de l'article</h4>
-	<div></div>
-	
-
-	</figure>
-</section>
-
+<body>
+	${html}
+</body>
 <%@ include file="layouts/footer.jsp"%>
 </html>

@@ -14,13 +14,13 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/home")
 public class Home<ReadFile> extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	static final String FILEPATH = "C:\\Users\\Administrateur\\Desktop\\Formation POE\\J2EE\\ParisVente\\WebContent\\articles.txt";
+	public static final String FILEPATH = "C:\\Users\\Administrateur\\Desktop\\Formation POE\\J2EE\\ParisVente\\WebContent\\articles.txt";
 
 	public Home() {
 		super();
 	}
 
-	public static String readFile(HttpServletRequest request, HttpServletResponse response) {
+	public String readFile(HttpServletRequest request, HttpServletResponse response) {
 		List<String> allLines = null;
 		String html;
 		String allHtml = "";
