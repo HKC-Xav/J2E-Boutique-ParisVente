@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE>
 <html>
+<head>
 <%@ include file="layouts/header.jsp" %>
 <body>
 	${html}

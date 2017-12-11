@@ -22,13 +22,24 @@ public class Articles extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String id = request.getParameter("id");
-		Article a = new Article();
-		String html = a.findArticle(BDD.readFiles(BDD.FILEPATH),BDD.findById(Integer.parseInt(id)));
+		Integer id = 0;
+
+		try {
+			id = Integer.parseInt(request.getParameter("id"));
+		} catch (NumberFormatException e) {
+			System.out.println(e.getMessage());
+		}
+
+		Article articles = new Article();
+		articles.setRequest(request);
 		
-		request.setAttribute("html", html );
+		BDD bdd = new BDD(BDD.FILEPATH);
+		
+		request.setAttribute("html", articles.findById(bdd.readFile(), id));
+
 		this.getServletContext().getRequestDispatcher("/WEB-INF/article.jsp").forward(request, response);
 	}
+
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

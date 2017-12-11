@@ -17,14 +17,20 @@ public class Home<ReadFile> extends HttpServlet {
 	public Home() {
 		super();
 	}
-
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Article art = new Article();
-		String html = art.findAll(BDD.readFiles(BDD.FILEPATH));
-		request.setAttribute("html", html );
+		
+		Article articles = new Article();
+		articles.setRequest(request);
+		
+		BDD bdd = new BDD(BDD.FILEPATH);
+		
+		request.setAttribute("html", articles.findAll(bdd.readFile()));
+		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(request, response);
 	}
+
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
