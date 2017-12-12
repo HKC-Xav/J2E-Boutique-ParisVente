@@ -10,37 +10,41 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 
+//Cookie cookie = new Cookie("E-mail", mail);
+//cookie.setMaxAge(10);
+//response.addCookie(cookie);
+//response.addCookie(new Cookie("Password", pass));
 
 @WebServlet("/login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
 
-    public Login() {
-        super();
-    }
+	public Login() {
+		super();
+	}
 
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession(true);
-		session.invalidate();
 		this.getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
 	}
 
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String mail = request.getParameter("email");
 		String pass = request.getParameter("pass");
-		String age = request.getParameter("age");
-		request.setAttribute("age", age);
-//		Cookie cookie = new Cookie("E-mail", mail);
-//		cookie.setMaxAge(10);
-//		response.addCookie(cookie);
-//		response.addCookie(new Cookie("Password", pass));
+		String deco = request.getParameter("delog");
+		Boolean isLog = false;
 		HttpSession session = request.getSession(true);
-		session.setAttribute("email", mail);
-		String[] str = {"Vaness", "Chairat", "Sam"};
-		request.setAttribute("str", str);
+		if (pass.equals("123456")) {
+			isLog = true;
+			session.setAttribute("email", mail);
+			session.setAttribute("isLog", isLog);
+		}
+		
+		if (deco.equals("true")) {
+			session.invalidate();
+		}
 		doGet(request, response);
 	}
 
