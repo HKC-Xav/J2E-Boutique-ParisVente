@@ -22,8 +22,6 @@ public class Home<ReadFile> extends HttpServlet {
 			throws ServletException, IOException {
 		
 		Article articles = new Article();
-		articles.setRequest(request);
-		
 		BDD bdd = new BDD(BDD.FILEPATH);
 		
 		request.setAttribute("html", articles.findAll(bdd.readFile()));

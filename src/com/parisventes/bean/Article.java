@@ -1,5 +1,6 @@
 package com.parisventes.bean;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,38 +17,27 @@ public class Article {
 	public Article() {
 
 	}
-
-	public String findAll(List<String> allLines) {
-		String html = new String();
+	
+	
+	
+	public List<Article> findAll(List<String> allLines) {
+		List<Article> list = new ArrayList<Article>();
 		for (String line : allLines) {
 			Article article = this.splitLine(line);
-			html += "<article><h4>";
-			html += article.title + "</h4><figure><a href=\"" + this.request.getContextPath() +"/article?id="+article.id+ "\"><img src=\"";
-			html += this.request.getContextPath() + article.linkimg+ "\" alt=\"\"></a><figcaption>";
-			html += article.description + "</figcaption></figure><span>";
-			html += article.price + "€</span></article>";
+			list.add(article);
 		}
-		return html;
+		return list;
 	}
 	
-	public String findById(List<String> allLines, Integer id) {
-		String html = new String();
-		for (int i = 0; i < allLines.size(); i++) {
-
-			Article article = this.splitLine(allLines.get(i));
-			if (article.id == id) {
-				html = "<article><h4>";
-				html += article.title + "</h4><figure><img src=\"";
-				html += request.getContextPath() + article.linkimg + "\" alt=\"\"><figcaption>";
-				html += article.description + "</figcaption></figure><span>";
-				html += article.price + "€</span></article>";
-				return html;
-			}else {
-				html = "Aucun article n'existe avec cet identifiant";
+	public Article findById(List<String> allLines, Integer id) {
+		Article article = new Article();
+		for (String line : allLines) {
+			Article art = this.splitLine(line);
+			if (art.id == id) {
+				article = art;
 			}
 		}
-		
-		return html;
+		return article;
 	}
 	public Article splitLine(String line) {
 		String[] arr = line.split("\\|");
