@@ -23,7 +23,7 @@ public class Login extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(true);
-		System.out.println(session.getAttribute("email"));
+		session.invalidate();
 		this.getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
 	}
 
@@ -31,14 +31,16 @@ public class Login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String mail = request.getParameter("email");
 		String pass = request.getParameter("pass");
+		String age = request.getParameter("age");
+		request.setAttribute("age", age);
 //		Cookie cookie = new Cookie("E-mail", mail);
 //		cookie.setMaxAge(10);
 //		response.addCookie(cookie);
 //		response.addCookie(new Cookie("Password", pass));
 		HttpSession session = request.getSession(true);
 		session.setAttribute("email", mail);
-		
-		
+		String[] str = {"Vaness", "Chairat", "Sam"};
+		request.setAttribute("str", str);
 		doGet(request, response);
 	}
 
