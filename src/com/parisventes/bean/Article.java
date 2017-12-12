@@ -49,9 +49,6 @@ public class Article {
 		
 		return html;
 	}
-
-
-
 	public Article splitLine(String line) {
 		String[] arr = line.split("\\|");
 		Article a = new Article();
