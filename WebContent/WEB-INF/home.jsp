@@ -9,7 +9,7 @@
 			</a>
 			<figcaption>${i.description}</figcaption>
 		</figure>
-		<span><c:out value="${i.price}"></c:out> $euro; </span>
+		<span><c:out value="${i.price}"></c:out> &euro; </span>
 	</article>
 	</c:forEach>
 </body>

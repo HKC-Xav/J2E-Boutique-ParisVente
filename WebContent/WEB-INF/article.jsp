@@ -8,7 +8,7 @@
 				</a>
 				<figcaption>${html.description}</figcaption>
 			</figure>
-			<span><c:out value="${html.price}"></c:out> $euro; </span>
+			<span><c:out value="${html.price}"></c:out> &euro; </span>
 		</article>
 
 </body>
