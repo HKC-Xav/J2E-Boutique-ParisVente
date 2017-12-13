@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 import com.parisventes.bean.Article;
 import com.parisventes.bean.BDD;
 
-@WebServlet("/article")
+//@WebServlet("/article")
 public class Articles extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public Articles() {
 		super();
 	}
-	
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Integer id = 0;
@@ -30,14 +30,13 @@ public class Articles extends HttpServlet {
 
 		Article articles = new Article();
 		articles.setRequest(request);
-		
+
 		BDD bdd = new BDD(BDD.FILEPATH);
-		
+
 		request.setAttribute("html", articles.findById(bdd.readFile(), id));
 
 		this.getServletContext().getRequestDispatcher("/WEB-INF/article.jsp").forward(request, response);
 	}
-
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

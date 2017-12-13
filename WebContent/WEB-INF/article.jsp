@@ -1,14 +1,14 @@
 <%@ include file="layouts/header.jsp"%>
 <body>
 		<article>
-			<h4>${html.title}</h4>
+			<h4><c:out value="${html.title}"></c:out></h4>
 			<figure>
 				<a href=#>
 					<img src=".${html.linkimg}" alt="">
 				</a>
 				<figcaption>${html.description}</figcaption>
 			</figure>
-			<span>${html.price}€</span>
+			<span><c:out value="${html.price}"></c:out> $euro; </span>
 		</article>
 
 </body>

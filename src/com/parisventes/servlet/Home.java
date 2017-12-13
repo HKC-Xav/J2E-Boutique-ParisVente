@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.parisventes.bean.Article;
 import com.parisventes.bean.BDD;
 
-@WebServlet("/home")
+//@WebServlet("/home")
 public class Home<ReadFile> extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

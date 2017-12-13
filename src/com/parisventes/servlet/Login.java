@@ -17,7 +17,7 @@ import com.parisventes.bean.Personne;
 //response.addCookie(cookie);
 //response.addCookie(new Cookie("Password", pass));
 
-@WebServlet("/login")
+//@WebServlet("/login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
