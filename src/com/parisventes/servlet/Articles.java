@@ -16,10 +16,8 @@ public class Articles extends HttpServlet {
 
 	public Articles() {
 		super();
-
 	}
-
-
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Integer id = 0;

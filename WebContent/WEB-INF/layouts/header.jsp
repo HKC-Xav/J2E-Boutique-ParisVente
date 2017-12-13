@@ -15,6 +15,7 @@
 		<ul>
 			<li><a href=/contact>Contact</a></li>
 			<li><a href=/formulaire>Formulaire</a></li>
+			
 		</ul>
 	</nav>
 </header>
